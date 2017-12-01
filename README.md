@@ -1,1 +1,1 @@
-initialize project 2
+Examples include Hdfs,MR,Hive,HBase Example
