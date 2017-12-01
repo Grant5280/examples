@@ -1,0 +1,48 @@
+分布式文件系统：
+	1）dataset 量达到一定规模时，那么单机就没办法进行处理
+	2）把数据分布到各个独立的机器上（多台机器共同协作）
+	3）网络
+
+HDFS:
+	commodity
+
+
+HDFS优点：
+	1）硬件错误
+	2）流式数据访问
+	3）大规模数据集
+	4）简单的一致性模型
+	5）移动计算比移动数据更划算
+	6）异构软硬件平台间的可移植性
+
+
+
+HDFS架构
+
+1 Master(NameNode/NN)  带 N个Slaves(DataNode/DN)
+HDFS/YARN/HBase
+
+1个文件会被拆分成多个Block
+blocksize：128M
+130M ==> 2个Block： 128M 和 2M
+
+NN：
+1）负责客户端请求的响应
+2）负责元数据（文件的名称、副本系数、Block存放的DN）的管理
+
+DN：
+1）存储用户的文件对应的数据块(Block)
+2）要定期向NN发送心跳信息，汇报本身及其所有的block信息，健康状况
+
+A typical deployment has a dedicated machine that runs only the NameNode software.
+Each of the other machines in the cluster runs one instance of the DataNode software.
+The architecture does not preclude running multiple DataNodes on the same machine
+but in a real deployment that is rarely the case.
+
+NameNode + N个DataNode
+建议：NN和DN是部署在不同的节点上
+
+
+replication factor：副本系数、副本因子
+
+All blocks in a file except the last block are the same size
