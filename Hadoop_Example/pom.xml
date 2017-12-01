@@ -2,39 +2,39 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>Examples</artifactId>
+        <groupId>com.grant</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.grant</groupId>
-    <artifactId>Examples</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>Hadoop_Example</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>HDFS_Example</module>
-        <module>Hadoop_Example</module>
-    </modules>
-    <properties>
-        <!--hadoop-->
-        <hadoop.client.version>2.7.3</hadoop.client.version>
-        <hdfs.version>2.7.3</hdfs.version>
-        <hbase.version>1.2.6</hbase.version>
-        <!--Spark & Scala-->
-        <scala.version>2.11.11</scala.version>
-        <akka.version>2.5.5</akka.version>
-        <spark.version>2.2.0</spark.version>
-        <!--kafka-->
-        <kafka.version>1.6.2</kafka.version>
-        <!--storm-->
-        <storm.version>1.0.5</storm.version>
-        <clojure.version>1.8.0</clojure.version>
-        <jedis.version>2.9.0</jedis.version>
-        <!--apache common-->
-        <commons.io.version>2.4</commons.io.version>
-        <log4j.core.version>2.8.2</log4j.core.version>
-        <!--commons-->
-        <mysql.version>5.1.38</mysql.version>
-        <jsoup.version>1.10.3</jsoup.version>
-        <junit.version>4.11</junit.version>
-    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-hdfs</artifactId>
+            <version>${hdfs.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>${hadoop.client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons.io.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.core.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <testSourceDirectory>src/test/java</testSourceDirectory>
