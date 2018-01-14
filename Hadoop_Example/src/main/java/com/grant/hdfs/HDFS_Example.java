@@ -19,12 +19,14 @@ public class HDFS_Example {
     public static void main(String[] args) throws IOException {
         if(args.length < 1){
             logger.error("args is required! hdfs-url ex:hdfs://cluster:8020 or hdfs://namenodeserver:9000");
-            System.exit(0);
+            System.exit(2);
         }
         String hdfs_url = args[0];
+        //HDFS path
         String path = "/user/hadoop/example";
+        //HDFS Filename
         String file_name = "hdfs_example.txt";
-        String file_content = "Grant is Greatest!";
+        String file_content = "Grant is Wonderful!";
         //init hdfs file system
         Configuration cfg = new Configuration();
 
